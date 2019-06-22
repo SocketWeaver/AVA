@@ -7,10 +7,10 @@ YouTube Video Tutorial (In progress...)
 
 > All accounts get 20GB of data for **FREE** every month. 
 
-## Part 1 https://youtu.be/nkHFrBseX8o
+## Part 1 https://youtu.be/EE2UmPLz0sE
 How to set up the SocketWeaver SDK.
 
-## Part 2 https://youtu.be/oXCRmHw2D0c
+## Part 2 https://youtu.be/p20JRs4TyeQ
 How to synchronize player's transform states and animation states.
 
 ## Community
