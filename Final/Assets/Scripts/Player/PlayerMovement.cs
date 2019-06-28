@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using SWNetwork;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,19 +11,26 @@ public class PlayerMovement : MonoBehaviour
     Player player;
     private CharacterController characterController;
 
+    NetworkID networkID;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
         player = GetComponent<Player>();
 
-        CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
-        cameraFollow.Target = transform;
+        networkID = GetComponent<NetworkID>();
+
+        if (networkID.IsMine)
+        {
+            CameraFollow cameraFollow = Camera.main.GetComponent<CameraFollow>();
+            cameraFollow.Target = transform;
+        }
     }
 
     void Update()
     {
-        if (player.Dead)
+        if (player.Dead || !networkID.IsMine)
         {
             return;
         }

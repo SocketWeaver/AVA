@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using SWNetwork;
 
 public class PlayerAim : MonoBehaviour
 {
@@ -20,10 +21,13 @@ public class PlayerAim : MonoBehaviour
     public Vector3 aimPoint;
     public GameObject target;
 
+    NetworkID networkID;
+
     private void Awake()
     {
         cam = Camera.main;
         player = GetComponent<Player>();
+        networkID = GetComponent<NetworkID>();
     }
 
     void EnableFPSCursor()
@@ -45,17 +49,17 @@ public class PlayerAim : MonoBehaviour
 
     void OnEnable()
     {
-        EnableFPSCursor();
+        //EnableFPSCursor();
     }
 
     void OnDisable()
     {
-        DisableFPSCursor();
+        //DisableFPSCursor();
     }
 
     void Update()
     {
-        if (player.Dead)
+        if (player.Dead || !networkID.IsMine)
         {
             return;
         }

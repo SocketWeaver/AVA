@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SWNetwork;
 
 public class GameSceneManager : MonoBehaviour
 {
@@ -10,6 +11,23 @@ public class GameSceneManager : MonoBehaviour
     public Dictionary<string, int> Scores = new Dictionary<string, int>();
 
     const string SCORES = "Scores";
+
+    public void OnSpawnerReady(bool finishedSetup)
+    {
+        if (!finishedSetup)
+        {
+            if (NetworkClient.Instance.IsHost)
+            {
+                NetworkClient.Instance.LastSpawner.SpawnForPlayer(0, 0);
+            }
+            else
+            {
+                NetworkClient.Instance.LastSpawner.SpawnForPlayer(0, 1);
+            }
+
+            NetworkClient.Instance.LastSpawner.PlayerFinishedSceneSetup();
+        }
+    }
 
     public void PlayerScored(string playerId)
     {
@@ -36,5 +54,4 @@ public class GameSceneManager : MonoBehaviour
         int spawnPointIndex = Random.Range(0, 12);
         Instantiate(PlayerPrefab, RespawnPosition, Quaternion.identity);
     }
-
 }
