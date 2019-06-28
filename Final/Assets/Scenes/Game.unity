@@ -938,8 +938,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  dynamicallySpawned: 1
+  fixedNetworkObjectID: 1
   showVisibleGizmo: 1
   Filterable: 0
+  SendRealtimeData: 1
   visibleSize: 1
 --- !u!4 &733847631
 Transform:
