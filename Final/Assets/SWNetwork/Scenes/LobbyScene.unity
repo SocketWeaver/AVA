@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: -1755967976, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LoggingLevel: 3
+  LoggingLevel: 0
   API_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDBiMTJhZmYwOTRiNTAwMTI1ZTg5OTkiLCJzdGFnZSI6MTU2MTAwNjc2NzE3NCwiaWF0IjoxNTYxMDA2NzY3fQ.EhzUnDs67kaPWg6kpA6ksBRy_KrEbLrp5TrzzwLR8s0
   LogFilePath: 
   LobbyName: 
