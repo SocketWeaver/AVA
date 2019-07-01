@@ -16,7 +16,8 @@ public class PlayerWeapon : MonoBehaviour
     SyncPropertyAgent syncPropertyAgent;
 
     const string CURRENT_WEAPON_INDEX = "CurrentWeaponIndex";
-
+    const string SHOOTING = "Shooting";
+    bool lastShootingState = false;
 
     private void Start()
     {
@@ -28,25 +29,36 @@ public class PlayerWeapon : MonoBehaviour
 
     void Update()
     {
-        if (player.Dead || !networkID.IsMine)
+        if (player.Dead)
         {
             return;
         }
 
-        if (Input.GetKeyUp(KeyCode.Alpha1))
-        {
-            syncPropertyAgent.Modify(CURRENT_WEAPON_INDEX, (int)Constants.Guns.Laser);
-            //ActivateWeapon(Constants.Guns.Laser);
-        }
-        else if (Input.GetKeyUp(KeyCode.Alpha2))
-        {
-            syncPropertyAgent.Modify(CURRENT_WEAPON_INDEX, (int)Constants.Guns.MachineGun);
-            //ActivateWeapon(Constants.Guns.MachineGun);
-        }
-
-        if (Input.GetButton("Fire1"))
+        if (syncPropertyAgent.GetPropertyWithName(SHOOTING).GetBoolValue())
         {
             curretnGun.Fire();
+        }
+
+        if (networkID.IsMine)
+        {
+            if (Input.GetKeyUp(KeyCode.Alpha1))
+            {
+                syncPropertyAgent.Modify(CURRENT_WEAPON_INDEX, (int)Constants.Guns.Laser);
+                //ActivateWeapon(Constants.Guns.Laser);
+            }
+            else if (Input.GetKeyUp(KeyCode.Alpha2))
+            {
+                syncPropertyAgent.Modify(CURRENT_WEAPON_INDEX, (int)Constants.Guns.MachineGun);
+                //ActivateWeapon(Constants.Guns.MachineGun);
+            }
+
+            bool shooting = Input.GetButton("Fire1");
+
+            if(shooting != lastShootingState)
+            {
+                syncPropertyAgent.Modify(SHOOTING, shooting);
+                lastShootingState = shooting;
+            }
         }
     }
 

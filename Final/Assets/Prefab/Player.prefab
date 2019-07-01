@@ -460,7 +460,91 @@ MonoBehaviour:
   m_Script: {fileID: -1480947390, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncedGenerics: []
+  syncedGenerics:
+  - syncTarget: {fileID: 579}
+    enabled: 1
+    foldout: 0
+    bandwidth: 6
+    padding: 7
+    editorName: PlayerAim
+    uncompressedSyncFields: []
+    syncFields:
+    - enabled: 0
+      min: -300
+      max: 300
+      resolution: 3
+      valueType: 0
+      minInt: -300
+      maxInt: 300
+      fieldInfoName: MaxVerticleView
+      isProperty: 0
+    - enabled: 0
+      min: -300
+      max: 300
+      resolution: 3
+      valueType: 0
+      minInt: -300
+      maxInt: 300
+      fieldInfoName: range
+      isProperty: 0
+    syncVector2Fields:
+    - fieldInfoName: TurnSpeed
+      isProperty: 0
+      xSyncField:
+        enabled: 0
+        min: -300
+        max: 300
+        resolution: 3
+        valueType: 0
+        minInt: -300
+        maxInt: 300
+        fieldInfoName: 
+        isProperty: 0
+      ySyncField:
+        enabled: 0
+        min: -300
+        max: 300
+        resolution: 3
+        valueType: 0
+        minInt: -300
+        maxInt: 300
+        fieldInfoName: 
+        isProperty: 0
+    syncVector3Fields:
+    - fieldInfoName: aimPoint
+      isProperty: 0
+      xSyncField:
+        enabled: 1
+        min: 0
+        max: 128
+        resolution: 3
+        valueType: 0
+        minInt: -300
+        maxInt: 300
+        fieldInfoName: 
+        isProperty: 0
+      ySyncField:
+        enabled: 1
+        min: 0
+        max: 50
+        resolution: 3
+        valueType: 0
+        minInt: -300
+        maxInt: 300
+        fieldInfoName: 
+        isProperty: 0
+      zSyncField:
+        enabled: 1
+        min: -128
+        max: 0
+        resolution: 3
+        valueType: 0
+        minInt: -300
+        maxInt: 300
+        fieldInfoName: 
+        isProperty: 0
+    syncQuaternionFields: []
+    syncVector4Fields: []
   syncedTransform:
     interpolate: 20
     smoothLevel: 0
@@ -576,7 +660,7 @@ MonoBehaviour:
   syncTransFormEnabled: 1
   syncAnimatorEnabled: 1
   syncTransFormFoldout: 1
-  syncAnimatorFoldout: 1
+  syncAnimatorFoldout: 0
   restoreState: 1
 --- !u!114 &28590466
 MonoBehaviour:
@@ -591,7 +675,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   properties_:
-  - Foldout: 1
+  - Foldout: 0
     name: CurrentWeaponIndex
     type: 2
     conflictResolution: 0
@@ -631,6 +715,26 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+      m_TypeName: SWNetwork.SWSyncedPropertyInitialFetchFinishedEvent, SWNetwork,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - Foldout: 0
+    name: Shooting
+    type: 0
+    conflictResolution: 0
+    data: 
+    onValueChange:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: SWNetwork.SWSyncedPropertyValueChangeEvent, SWNetwork, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onConflict:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: SWNetwork.SWSyncedPropertyConflictEvent, SWNetwork, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+    onReady:
+      m_PersistentCalls:
+        m_Calls: []
       m_TypeName: SWNetwork.SWSyncedPropertyInitialFetchFinishedEvent, SWNetwork,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   restoreState: 1

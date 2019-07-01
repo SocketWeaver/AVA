@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using SWNetwork;
 
 public class Gun : MonoBehaviour
 {
@@ -28,8 +29,12 @@ public class Gun : MonoBehaviour
 
     public void AddAmmo(int count)
     {
-        Ammo = Ammo + count;
-        guiManager.SetWeaponAmmo(GunType, Ammo);
+        NetworkID networkID = GetComponentInParent<NetworkID>();
+        if (networkID != null && networkID.IsMine)
+        {
+            Ammo = Ammo + count;
+            guiManager.SetWeaponAmmo(GunType, Ammo);
+        }
     }
 
     private void Awake()
@@ -43,12 +48,20 @@ public class Gun : MonoBehaviour
 
     private void OnEnable()
     {
-        guiManager.SetWeaponAcive(GunType, true);
+        NetworkID networkID = GetComponentInParent<NetworkID>();
+        if(networkID!= null && networkID.IsMine)
+        {
+            guiManager.SetWeaponAcive(GunType, true);
+        }
     }
 
     void OnDisable()
     {
-        guiManager.SetWeaponAcive(GunType, false);
+        NetworkID networkID = GetComponentInParent<NetworkID>();
+        if (networkID != null && networkID.IsMine)
+        {
+            guiManager.SetWeaponAcive(GunType, false);
+        }
     }
 
     void Update()
