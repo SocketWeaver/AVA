@@ -16,6 +16,9 @@ How to synchronize player's transform states and animation states.
 ## Part 3 https://youtu.be/vhEFXHNUXOw
 How to use the SocketWeaver SyncProperty to update player weapons.
 
+## Part 4 https://youtu.be/DF6ud83MZXw
+How you can implement machine gun shooting in a networked game and how to use the generic tracker to synchronize the player's aiming point.
+
 ## Community
 If you have questions about the tutorial, join our discord server at: https://discord.gg/qXt7Bkf
 
