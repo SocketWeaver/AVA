@@ -547,7 +547,7 @@ MonoBehaviour:
     syncVector4Fields: []
   syncedTransform:
     interpolate: 20
-    smoothLevel: 0
+    smoothLevel: 2
     snapDistance: 10
     readFunction: 0
     bandwidth: 6

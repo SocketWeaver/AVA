@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SWNetwork;
 
 public class Spawner : MonoBehaviour
 {
@@ -14,22 +15,36 @@ public class Spawner : MonoBehaviour
 
     public int MaxNumberOfSpawnedGameObject = 10;
 
+    SceneSpawner sceneSpawner;
+
     void Start()
+    {
+        sceneSpawner = GetComponent<SceneSpawner>();
+    }
+
+    public void OnSpawnerReady(bool finishedSceneSetup)
     {
         InvokeRepeating("Spawn", 0, SpawnInterval);
     }
 
     void Spawn()
     {
-        if(MaxNumberOfSpawnedGameObject > 0)
+        if (MaxNumberOfSpawnedGameObject > 0)
         {
             MaxNumberOfSpawnedGameObject--;
 
-            int prefabCount = Prefabs.Count;
+            if (NetworkClient.Instance.IsHost)
+            {
+                sceneSpawner.SpawnForNonPlayer(0, 0);
+            }
 
-            int index = Random.Range(0, prefabCount - 1);
+            //int prefabCount = Prefabs.Count;
 
-            Instantiate(Prefabs[index], SpawnPoint.position, SpawnPoint.rotation);
+            //int index = Random.Range(0, prefabCount - 1);
+
+            //Instantiate(Prefabs[index], SpawnPoint.position, SpawnPoint.rotation);
         }
     }
 }
+
+

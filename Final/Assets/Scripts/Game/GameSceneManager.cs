@@ -12,20 +12,22 @@ public class GameSceneManager : MonoBehaviour
 
     const string SCORES = "Scores";
 
+
+
     public void OnSpawnerReady(bool finishedSetup)
     {
         if (!finishedSetup)
         {
             if (NetworkClient.Instance.IsHost)
             {
-                NetworkClient.Instance.LastSpawner.SpawnForPlayer(0, 0);
+                NetworkClient.Instance.FindSpawner(1).SpawnForPlayer(0, 0);
             }
             else
             {
-                NetworkClient.Instance.LastSpawner.SpawnForPlayer(0, 1);
+                NetworkClient.Instance.FindSpawner(1).SpawnForPlayer(0, 1);
             }
 
-            NetworkClient.Instance.LastSpawner.PlayerFinishedSceneSetup();
+            NetworkClient.Instance.FindSpawner(1).PlayerFinishedSceneSetup();
         }
     }
 
@@ -55,3 +57,6 @@ public class GameSceneManager : MonoBehaviour
         Instantiate(PlayerPrefab, RespawnPosition, Quaternion.identity);
     }
 }
+
+
+

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using SWNetwork;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -20,30 +21,38 @@ public class Bot : MonoBehaviour
     float timer;
     Player targetPlayer;
 
+    NetworkID networkID;
+
     void Start()
     {
         Agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+        networkID = GetComponent<NetworkID>();
     }
 
     void Update()
     {
-        switch (state)
+        Agent.enabled = networkID.IsMine;
+
+        if (networkID.IsMine)
         {
-            case BotState.Wandering:
+            switch (state)
             {
-                Wandering();
-                break;
-            }
-            case BotState.Chasing:
-            {
-                Chasing();
-                break;
-            }
-            case BotState.Dead:
-            {
-                break;
+                case BotState.Wandering:
+                    {
+                        Wandering();
+                        break;
+                    }
+                case BotState.Chasing:
+                    {
+                        Chasing();
+                        break;
+                    }
+                case BotState.Dead:
+                    {
+                        break;
+                    }
             }
         }
     }

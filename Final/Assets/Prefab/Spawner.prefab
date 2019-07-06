@@ -10,10 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8698147951723867859}
   - component: {fileID: 8698147951723867858}
+  - component: {fileID: 4461049107930545308}
+  - component: {fileID: 3805743562837612607}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -46,9 +48,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Prefabs:
   - {fileID: 30, guid: a37780028c25e463794e0e02bc305548, type: 3}
-  SpawnInterval: 30
+  SpawnInterval: 5
+  InitialDelay: 5
   SpawnPoint: {fileID: 8698147952672206287}
-  OnlySpawnWhenEmpty: 0
+  MaxNumberOfSpawnedGameObject: 10
+--- !u!114 &4461049107930545308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698147951723867861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1914939488, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  dynamicallySpawned: 1
+  fixedNetworkObjectID: 1
+  showVisibleGizmo: 1
+  Filterable: 0
+  SendRealtimeData: 1
+  visibleSize: 1
+--- !u!114 &3805743562837612607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698147951723867861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -750624441, guid: 6a67afbfe15ab9c4696e982c25d07a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefabs: []
+  nonPlayerPrefabs:
+  - {fileID: 30, guid: a37780028c25e463794e0e02bc305548, type: 3}
+  spawnPoints:
+  - {fileID: 8698147952672206287}
+  spawnPointsFoldout: 1
+  playerPrefabsFoldout: 1
+  nonPlayerPrefabsFoldout: 1
+  spawnerId: 1
+  OnReady:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8698147951723867858}
+        m_MethodName: OnSpawnerReady
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: SWNetwork.SceneSpawnerReadyEvent, SWNetwork, Version=1.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+  OnHostReady:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: SWNetwork.SceneSpawnerReadyEvent, SWNetwork, Version=1.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!1 &8698147952672206286
 GameObject:
   m_ObjectHideFlags: 0
