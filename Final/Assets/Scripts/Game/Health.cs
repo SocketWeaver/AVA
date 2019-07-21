@@ -3,7 +3,7 @@
 public class Health : MonoBehaviour
 {
     public int MaxHp = 100;
-    int currentHP = 0;
+    int currentHP;
 
     void Start()
     {
@@ -23,11 +23,6 @@ public class Health : MonoBehaviour
     }
 
     public virtual void HPUpdated(int hp) {
-
-    }
-
-    public virtual void HPReady(int hp)
-    {
 
     }
 }

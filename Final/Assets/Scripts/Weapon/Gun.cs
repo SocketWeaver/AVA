@@ -18,21 +18,12 @@ public class Gun : MonoBehaviour
     float timer;
     RaycastHit shootHit;
 
-    void DealDamage(GameObject go)
-    {
-        Health health = go.GetComponent<Health>();
-        if (health != null)
-        {
-            health.GotHit(Damage);
-        }
-    }
-
     public void AddAmmo(int count)
     {
         NetworkID networkID = GetComponentInParent<NetworkID>();
         if (networkID != null && networkID.IsMine)
         {
-            Ammo = Ammo + count;
+            Ammo += count;
             guiManager.SetWeaponAmmo(GunType, Ammo);
         }
     }
@@ -93,6 +84,15 @@ public class Gun : MonoBehaviour
         if(playerAim.target != null)
         {
             DealDamage(playerAim.target);
+        }
+    }
+
+    private void DealDamage(GameObject go)
+    {
+        Health health = go.GetComponent<Health>();
+        if (health != null)
+        {
+            health.GotHit(Damage);
         }
     }
 }

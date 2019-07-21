@@ -10,7 +10,7 @@ public class PlayerWeapon : MonoBehaviour
     public List<Gun> Guns;
 
     Player player;
-    Gun curretnGun;
+    Gun currentGun;
 
     NetworkID networkID;
     SyncPropertyAgent syncPropertyAgent;
@@ -36,7 +36,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (syncPropertyAgent.GetPropertyWithName(SHOOTING).GetBoolValue())
         {
-            curretnGun.Fire();
+            currentGun.Fire();
         }
 
         if (networkID.IsMine)
@@ -79,7 +79,7 @@ public class PlayerWeapon : MonoBehaviour
             if (gun.GunType == gunType)
             {
                 gun.gameObject.SetActive(true);
-                curretnGun = gun;
+                currentGun = gun;
             }
             else
             {
