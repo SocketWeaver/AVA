@@ -94,6 +94,7 @@ public class Bot : MonoBehaviour
                 Target = null;
                 state = BotState.Wandering;
                 animator.SetBool("Attacking", false);
+                Agent.isStopped = false;
             }
             else
             {
@@ -109,11 +110,13 @@ public class Bot : MonoBehaviour
                 Target = null;
                 state = BotState.Wandering;
                 animator.SetBool("Attacking", false);
+                Agent.isStopped = false;
             }
             else
             {
                 Agent.destination = Target.position;
                 animator.SetBool("Attacking", false);
+                Agent.isStopped = false;
             }
         }
     }
@@ -135,7 +138,7 @@ public class Bot : MonoBehaviour
         if (state != BotState.Dead)
         {
             state = BotState.Dead;
-            Agent.destination = transform.position;
+            Agent.isStopped = true;
             animator.SetBool("Dead", true);
             capsuleCollider.enabled = false;
 
