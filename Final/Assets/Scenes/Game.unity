@@ -505,6 +505,11 @@ PrefabInstance:
       propertyPath: MaxNumberOfSpawnedGameObject
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 8698147951723867858, guid: be6c783ed7c8041248af73fa851fbff8,
+        type: 3}
+      propertyPath: SpawnInterval
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 3805743562837612607, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}
       propertyPath: spawnerId
@@ -532,7 +537,7 @@ PrefabInstance:
     - target: {fileID: 8698147951723867861, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8698147951723867861, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}
@@ -637,7 +642,7 @@ PrefabInstance:
     - target: {fileID: 8698147951723867861, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8698147951723867861, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}
@@ -933,6 +938,7 @@ MonoBehaviour:
   playerPrefabsFoldout: 1
   nonPlayerPrefabsFoldout: 1
   spawnerId: 1
+  AutoInitialization: 1
   OnReady:
     m_PersistentCalls:
       m_Calls:
@@ -1280,7 +1286,7 @@ PrefabInstance:
     - target: {fileID: 8698147951723867861, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8698147951723867861, guid: be6c783ed7c8041248af73fa851fbff8,
         type: 3}

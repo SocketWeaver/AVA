@@ -89,10 +89,14 @@ public class Gun : MonoBehaviour
 
     private void DealDamage(GameObject go)
     {
-        Health health = go.GetComponent<Health>();
-        if (health != null)
+        NetworkID networkID = GetComponentInParent<NetworkID>();
+        if (networkID != null && networkID.IsMine)
         {
-            health.GotHit(Damage);
+            Health health = go.GetComponent<Health>();
+            if (health != null)
+            {
+                health.GotHit(Damage);
+            }
         }
     }
 }

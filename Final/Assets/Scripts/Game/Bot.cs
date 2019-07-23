@@ -138,13 +138,23 @@ public class Bot : MonoBehaviour
         if (state != BotState.Dead)
         {
             state = BotState.Dead;
-            Agent.isStopped = true;
+
             animator.SetBool("Dead", true);
             capsuleCollider.enabled = false;
 
             GameSceneManager gameSceneManager = FindObjectOfType<GameSceneManager>();
             gameSceneManager.PlayerScored("Local Player");
-            Destroy(gameObject, 3);
+
+            if (networkID.IsMine)
+            {
+                Agent.isStopped = true;
+                Invoke("NetworkDestroy", 3);
+            }
         }
+    }
+
+    void NetworkDestroy()
+    {
+        networkID.Destroy();
     }
 }
