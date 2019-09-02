@@ -3,21 +3,34 @@ using System.Collections;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform Target;       //Public variable to store a reference to the player game object
-    //public float damping = 0.5f;
-    public Vector3 Offset;
-
-    void Start()
-    {
-        // offset = player.transform.position - transform.position;
+    public enum CameraMode{
+        FirstPerson,
+        ThirdPerson
     }
+    public Transform Target;  
+    public CameraMode CamMode = CameraMode.ThirdPerson;
+
+    public Vector3 FirstPersonOffset;
+    public Vector3 ThirdPersonOffset;
 
     void LateUpdate()
     {
         if (Target != null)
         {
-            Vector3 newPosition = Target.TransformPoint(Offset);
-            transform.position = newPosition; //Vector3.Lerp(transform.position, newPosition, damping);
+            Vector3 offset = Vector3.zero;
+
+            switch (CamMode)
+            {
+                case CameraMode.FirstPerson:
+                    offset = FirstPersonOffset;
+                    break;
+                case CameraMode.ThirdPerson:
+                    offset = ThirdPersonOffset;
+                    break;
+            }
+
+            Vector3 newPosition = Target.TransformPoint(offset);
+            transform.position = newPosition;
         }
     }
 }

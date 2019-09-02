@@ -14,20 +14,20 @@ public class GameSceneManager : MonoBehaviour
 
 
 
-    public void OnSpawnerReady(bool finishedSetup)
+    public void OnSpawnerReady(bool finishedSetup, SceneSpawner sceneSpawne)
     {
         if (!finishedSetup)
         {
             if (NetworkClient.Instance.IsHost)
             {
-                NetworkClient.Instance.FindSpawner(1).SpawnForPlayer(0, 0);
+                sceneSpawne.SpawnForPlayer(0, 0);
             }
             else
             {
-                NetworkClient.Instance.FindSpawner(1).SpawnForPlayer(0, 1);
+                sceneSpawne.SpawnForPlayer(0, 1);
             }
 
-            NetworkClient.Instance.FindSpawner(1).PlayerFinishedSceneSetup();
+            sceneSpawne.PlayerFinishedSceneSetup();
         }
     }
 

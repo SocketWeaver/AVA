@@ -22,7 +22,7 @@ public class Spawner : MonoBehaviour
         sceneSpawner = GetComponent<SceneSpawner>();
     }
 
-    public void OnSpawnerReady(bool finishedSceneSetup)
+    public void OnSpawnerReady(bool finishedSceneSetup, SceneSpawner sceneSpawner)
     {
         InvokeRepeating("Spawn", 0, SpawnInterval);
     }

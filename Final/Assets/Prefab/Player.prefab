@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 583}
   - component: {fileID: 582}
   - component: {fileID: 28590466}
+  - component: {fileID: 1453033220}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -393,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurnSpeed: {x: 1, y: 1}
-  MaxVerticleView: 60
+  MaxVerticleView: 30
   range: 1000
   shootableMask:
     serializedVersion: 2
@@ -737,7 +738,7 @@ MonoBehaviour:
         m_Calls: []
       m_TypeName: SWNetwork.SWSyncedPropertyInitialFetchFinishedEvent, SWNetwork,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - Foldout: 1
+  - Foldout: 0
     name: Health
     type: 2
     conflictResolution: 0
@@ -781,6 +782,20 @@ MonoBehaviour:
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   restoreState: 1
   AutoInitialization: 1
+--- !u!114 &1453033220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81b064b6833642beb0c556a89e471fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAim: {fileID: 579}
+  chest: {fileID: 306}
 --- !u!1 &92
 GameObject:
   m_ObjectHideFlags: 0
@@ -2567,7 +2582,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.13052624, y: 0, z: 0, w: 0.9914449}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2575,7 +2590,7 @@ Transform:
   - {fileID: 6885083600421588074}
   m_Father: {fileID: 361}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -15, y: 0, z: 0}
 --- !u!1001 &3262278896640003061
 PrefabInstance:
   m_ObjectHideFlags: 0

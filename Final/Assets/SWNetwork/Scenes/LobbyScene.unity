@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LoggingLevel: 3
-  API_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZDBiMTJhZmYwOTRiNTAwMTI1ZTg5OTkiLCJzdGFnZSI6MTU2MTAwNjc2NzE3NCwiaWF0IjoxNTYxMDA2NzY3fQ.EhzUnDs67kaPWg6kpA6ksBRy_KrEbLrp5TrzzwLR8s0
+  API_KEY: 
   LogFilePath: 
 --- !u!4 &216403692
 Transform:
